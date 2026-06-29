@@ -27,8 +27,6 @@ export function vypocetSocialniho(
     naMaximu = true;
   }
 
-  vz = Math.round(vz);
-
   return {
     vymerovaciZaklad: vz,
     socialni: ceilKc(vz * cfg.socialni.sazba),
