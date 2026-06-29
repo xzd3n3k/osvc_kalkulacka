@@ -87,6 +87,8 @@ osvc-kalkulacka/
 
 ## 4. Výpočetní engine — vzorce
 
+> **Předpoklad v1:** výpočet je za **celý kalendářní rok** činnosti (12 měsíců). Minima (sociální i zdravotní) se počítají jako 12× měsíční minimum. Krácení při zahájení/ukončení v průběhu roku je mimo rozsah v1.
+
 Vstup (`CalcInput`):
 - `year` (2025 | 2026)
 - `prijmy` (roční obrat, Kč)
