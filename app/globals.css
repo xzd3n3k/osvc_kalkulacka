@@ -1,1 +1,105 @@
 @import "tailwindcss";
+
+/* ─── Design tokens ─────────────────────────────────────────────────────────
+   Palette: cool off-white background, authoritative near-black text,
+   professional Czech-blue accent, deep teal for best-regime highlight.
+   ──────────────────────────────────────────────────────────────────────── */
+:root {
+  --color-bg: #F7F8FA;
+  --color-surface: #FFFFFF;
+  --color-border: #E2E5EB;
+  --color-border-strong: #C9CDD6;
+
+  --color-text: #0F1929;
+  --color-text-muted: #5A6478;
+  --color-text-subtle: #8C95A8;
+
+  --color-accent: #1A56DB;
+  --color-accent-subtle: #EBF0FC;
+
+  --color-best: #0B6E4F;
+  --color-best-bg: #E9F5F0;
+  --color-best-border: #34A87B;
+
+  --color-ineligible-text: #9EA8BA;
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono: ui-monospace, "SFMono-Regular", "Consolas", monospace;
+}
+
+/* ─── Base reset & typography ───────────────────────────────────────────── */
+html {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--color-bg);
+  min-height: 100dvh;
+}
+
+/* ─── Utility: tabular numbers ─────────────────────────────────────────── */
+.nums {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+/* ─── Focus ring ────────────────────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ─── Form control base ─────────────────────────────────────────────────── */
+.field-control {
+  width: 100%;
+  border-radius: 8px;
+  border: 1.5px solid var(--color-border);
+  background: var(--color-surface);
+  padding: 9px 12px;
+  font-size: 0.9375rem;
+  color: var(--color-text);
+  transition: border-color 0.15s ease;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.field-control:hover {
+  border-color: var(--color-border-strong);
+}
+
+.field-control:focus {
+  border-color: var(--color-accent);
+  outline: none;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-accent) 15%, transparent);
+}
+
+/* ─── Select arrow (custom) ─────────────────────────────────────────────── */
+select.field-control {
+  background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 6l4 4 4-4' stroke='%235A6478' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  padding-right: 36px;
+}
+
+/* ─── Checkbox ──────────────────────────────────────────────────────────── */
+input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  border: 1.5px solid var(--color-border-strong);
+  accent-color: var(--color-accent);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* ─── Best-regime table column top bar (signature element) ─────────────── */
+/* Applied via a data attribute on the <th> */
+th[data-best="true"] {
+  border-top: 3px solid var(--color-best-border);
+}
