@@ -115,13 +115,20 @@ export function calculate(input: CalcInput): CalcOutput {
     }
   }
 
-  // 4) Nejvýhodnější = nejvyšší čistý zbytek mezi dostupnými
+  // 4) Nejvýhodnější = nejvyšší čistý zbytek; při shodě nejnižší odvody celkem
   let nejlepsiId: string | null = null;
-  let nej = -Infinity;
+  let nejCisty = -Infinity;
+  let nejOdvody = Infinity;
   for (const r of rezimy) {
-    if (r.eligible && r.cistyZbytek != null && r.cistyZbytek > nej) {
-      nej = r.cistyZbytek;
-      nejlepsiId = r.id;
+    if (r.eligible && r.cistyZbytek != null && r.odvodyCelkem != null) {
+      if (
+        r.cistyZbytek > nejCisty ||
+        (r.cistyZbytek === nejCisty && r.odvodyCelkem < nejOdvody)
+      ) {
+        nejCisty = r.cistyZbytek;
+        nejOdvody = r.odvodyCelkem;
+        nejlepsiId = r.id;
+      }
     }
   }
 

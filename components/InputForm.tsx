@@ -26,7 +26,11 @@ export function InputForm({
   onChange: (next: CalcInput) => void;
 }) {
   const set = (patch: Partial<CalcInput>) => onChange({ ...value, ...patch });
-  const numOrUndef = (s: string) => (s === '' ? undefined : Number(s));
+  const numOrUndef = (s: string) => {
+    if (s === '') return undefined;
+    const n = Number(s);
+    return Number.isFinite(n) ? n : undefined;
+  };
 
   return (
     <form className="grid gap-5 sm:grid-cols-2" onSubmit={(e) => e.preventDefault()}>
