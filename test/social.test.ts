@@ -8,7 +8,7 @@ describe('vypocetSocialniho', () => {
   it('nad minimem', () => {
     const r = vypocetSocialniho(800000, cfg, false);
     expect(r.vymerovaciZaklad).toBeCloseTo(440000); // 0.55*800000
-    expect(r.socialni).toBe(128481); // ceil(440000*0.292) with fp precision
+    expect(r.socialni).toBe(128480); // ceil(440000*0.292) — matematicky přesně 128480cision
     expect(r.naMinimu).toBe(false);
   });
   it('pod minimem hlavní -> platí minimum (přeplatek)', () => {
