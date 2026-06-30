@@ -1,6 +1,9 @@
 {
   "name": "osvc-kalkulacka",
   "version": "0.1.0",
+  "description": "Open-source kalkulačka daní a odvodů pro české OSVČ — srovnání všech režimů (paušální výdaje, paušální daň, skutečné výdaje) podle aktuální legislativy.",
+  "license": "MIT",
+  "homepage": "https://github.com/xzd3n3k/osvc_kalkulacka",
   "private": true,
   "type": "module",
   "scripts": {
